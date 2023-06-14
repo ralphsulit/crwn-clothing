@@ -40,6 +40,7 @@ const SignUpForm = () => {
         alert('Email already in use');
       }
       console.error(error);
+      resetFormFields();
     }
   };
 
