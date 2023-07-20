@@ -21,6 +21,11 @@ const addCartItem = (cartItems, productToAdd) => {
   return [...cartItems, { ...productToAdd, quantity: 1 }];
 };
 
+// function hook to count all products in the cart using reduce
+const countTotalProducts = (cartItems) => {
+  return cartItems.reduce((total, item) => total + item.quantity, 0);
+};
+
 
 export const CartContext = createContext({
   isCartOpen: false,
@@ -37,7 +42,7 @@ export const CartProvider = ({ children }) => {
     setCartItems(addCartItem(cartItems, productToAdd));
   }
 
-  const value = {isCartOpen, setIsCartOpen, addItemToCart, cartItems}
+  const value = {isCartOpen, setIsCartOpen, addItemToCart, cartItems, countTotalProducts}
 
   return (
     <CartContext.Provider value={value}>{children}</CartContext.Provider>
