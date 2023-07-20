@@ -1,12 +1,14 @@
 import { createContext, useState } from 'react';
 
 const addCartItem = (cartItems, productToAdd) => {
-  // find if cartItems contains productToAdd
+  //checking if productToAdd is in the cartItem
   const existingCartItem = cartItems.find(
     (cartItem) => cartItem.id === productToAdd.id
   );
 
-  // if found, increment quantity
+  //if productToAdd is in the cartItem,
+  //if true it will add productToAdd + 1
+  //if false it will just add the product
   if (existingCartItem) {
     return cartItems.map((cartItem) =>
       cartItem.id === productToAdd.id
@@ -15,7 +17,7 @@ const addCartItem = (cartItems, productToAdd) => {
     );
   }
 
-  // return new array with modified cartItems / new cart item
+  //if there is no match productToAdd will be add to cartItems
   return [...cartItems, { ...productToAdd, quantity: 1 }];
 };
 
