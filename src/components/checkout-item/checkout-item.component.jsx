@@ -1,13 +1,13 @@
 import { Fragment, useContext } from "react";
 
-import { ChevronLeft, ChevronRight } from 'react-feather'; 
+import { ChevronLeft, ChevronRight, XCircle } from 'react-feather'; 
 import { CartContext } from "../../contexts/cart.context";
 
 import './checkout-item.style.scss';
 
 const CheckoutItem = ({ checkoutItem }) => {
   const { name, imageUrl, price, quantity, id } = checkoutItem;
-  const { decreaseQuantity, increaseQuantity } = useContext(CartContext);
+  const { decreaseQuantity, increaseQuantity, removeItem  } = useContext(CartContext);
 
   return (
     <Fragment>
@@ -20,6 +20,7 @@ const CheckoutItem = ({ checkoutItem }) => {
           <button onClick={() => increaseQuantity(id)}><ChevronRight /></button>
         </span>
         <span>{price}</span>
+        <button onClick={() => removeItem(id)}><XCircle /></button>
       </section>
     </Fragment>
   );
