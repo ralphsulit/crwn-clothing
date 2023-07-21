@@ -1,0 +1,17 @@
+.checkout-item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+    img {
+      width: 180px;
+    }
+
+    .checkout-item-quantity {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100px;
+    }
+}
