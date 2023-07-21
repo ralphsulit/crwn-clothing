@@ -53,7 +53,7 @@ export const CartProvider = ({ children }) => {
     setCartItems(updatedCartItems);
   };
 
-  // Function to increase product quantity in the cart
+  // function to increase product quantity in the cart
   const increaseQuantity = (itemId) => {
     const updatedCartItems = cartItems.map(item => {
       if (item.id === itemId) {
@@ -64,7 +64,16 @@ export const CartProvider = ({ children }) => {
     setCartItems(updatedCartItems);
   };
 
-  const value = {isCartOpen, setIsCartOpen, addItemToCart, cartItems, countTotalProducts, decreaseQuantity, increaseQuantity}
+  // function to remove product in the cart
+  const removeItem = (itemId) => {
+    const updatedCartItems = cartItems.filter(item => item.id !== itemId);
+    setCartItems(updatedCartItems);
+  };
+
+  // Calculate the total price of all items in the cart
+  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+
+  const value = {isCartOpen, setIsCartOpen, addItemToCart, cartItems, countTotalProducts, decreaseQuantity, increaseQuantity, removeItem, totalPrice}
 
   return (
     <CartContext.Provider value={value}>{children}</CartContext.Provider>
