@@ -42,7 +42,29 @@ export const CartProvider = ({ children }) => {
     setCartItems(addCartItem(cartItems, productToAdd));
   }
 
-  const value = {isCartOpen, setIsCartOpen, addItemToCart, cartItems, countTotalProducts}
+  // function to decrease product quantity in the cart
+  const decreaseQuantity = (itemId) => {
+    const updatedCartItems = cartItems.map(item => {
+      if (item.id === itemId && item.quantity > 1) {
+        return { ...item, quantity: item.quantity - 1 };
+      }
+      return item;
+    });
+    setCartItems(updatedCartItems);
+  };
+
+  // Function to increase product quantity in the cart
+  const increaseQuantity = (itemId) => {
+    const updatedCartItems = cartItems.map(item => {
+      if (item.id === itemId) {
+        return { ...item, quantity: item.quantity + 1 };
+      }
+      return item;
+    });
+    setCartItems(updatedCartItems);
+  };
+
+  const value = {isCartOpen, setIsCartOpen, addItemToCart, cartItems, countTotalProducts, decreaseQuantity, increaseQuantity}
 
   return (
     <CartContext.Provider value={value}>{children}</CartContext.Provider>
