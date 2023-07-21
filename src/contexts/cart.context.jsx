@@ -70,7 +70,10 @@ export const CartProvider = ({ children }) => {
     setCartItems(updatedCartItems);
   };
 
-  const value = {isCartOpen, setIsCartOpen, addItemToCart, cartItems, countTotalProducts, decreaseQuantity, increaseQuantity, removeItem}
+  // Calculate the total price of all items in the cart
+  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+
+  const value = {isCartOpen, setIsCartOpen, addItemToCart, cartItems, countTotalProducts, decreaseQuantity, increaseQuantity, removeItem, totalPrice}
 
   return (
     <CartContext.Provider value={value}>{children}</CartContext.Provider>
