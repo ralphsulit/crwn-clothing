@@ -7,7 +7,7 @@ import './checkout-item.style.scss';
 
 const CheckoutItem = ({ checkoutItem }) => {
   const { name, imageUrl, price, quantity, id } = checkoutItem;
-  const { decreaseQuantity, increaseQuantity, removeItem, totalPrice  } = useContext(CartContext);
+  const { decreaseQuantity, increaseQuantity, removeItem } = useContext(CartContext);
 
   return (
     <Fragment>
@@ -19,10 +19,9 @@ const CheckoutItem = ({ checkoutItem }) => {
           {quantity}
           <button onClick={() => increaseQuantity(id)}><ChevronRight /></button>
         </span>
-        <span>{price}</span>
+        <span>${price}</span>
         <button onClick={() => removeItem(id)}><XCircle /></button>
       </section>
-      <p>Total Price: ${totalPrice}</p>
     </Fragment>
   );
 };

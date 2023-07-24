@@ -6,7 +6,7 @@ import CheckoutItem from "../../components/checkout-item/checkout-item.component
 import './checkout.styles.scss'
 
 const CheckOut = () => {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, totalPrice } = useContext(CartContext);
 
   return (
     <Fragment>
@@ -15,6 +15,7 @@ const CheckOut = () => {
         {cartItems.map((item) => (
           <CheckoutItem key={item.id} checkoutItem={item} />
         ))}
+        <span>Total Price: ${totalPrice}</span>
       </section>
     </Fragment>
   );
