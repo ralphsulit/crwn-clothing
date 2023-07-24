@@ -19,7 +19,7 @@ const CheckoutItem = ({ checkoutItem }) => {
           {quantity}
           <button onClick={() => increaseQuantity(id)}><ChevronRight /></button>
         </span>
-        <span>{price}</span>
+        <span>${price}</span>
         <button onClick={() => removeItem(id)}><XCircle /></button>
       </section>
     </Fragment>
