@@ -3,7 +3,7 @@ import { Fragment, useContext } from 'react';
 import Button from '../button/button';
 import { CartContext } from '../../contexts/cart.context';
 
-import './product-card.styles.scss';
+import { ProductCardContainer, Footer} from './product-card.styles.jsx';
 
 const ProductCard = ({ product }) => {
   const { name, price, imageUrl } = product;
@@ -13,16 +13,16 @@ const ProductCard = ({ product }) => {
 
   return (
     <Fragment>
-      <section className='product-card-container'>
+      <ProductCardContainer>
         <img src={imageUrl} alt={`${name}`} />
-        <div className='footer'>
+        <Footer>
           <span className='name'>{name}</span>
           <span className='price'>{price}</span>
-        </div>
+        </Footer>
         <Button buttonType='inverted' onClick={addProductToCart}>
           Add to cart
         </Button>
-      </section>
+      </ProductCardContainer>
     </Fragment>
   );
 };

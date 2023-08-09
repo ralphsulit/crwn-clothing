@@ -1,12 +1,12 @@
 
 import ProductCard from '../product-card/product-card.component';
 
-import './category-preview.style.scss';
+import {CategoryPreviewContainer} from './category-preview.style.jsx';
 
 const CategoryPreview = ({title, products}) => {
   return (
     <>
-      <div className='category-preview-container'>
+      <CategoryPreviewContainer>
         <h2>
           <span className='title'>{title.toUpperCase()}</span>
         </h2>
@@ -19,7 +19,7 @@ const CategoryPreview = ({title, products}) => {
               ))
           }
         </div>
-      </div>
+      </CategoryPreviewContainer>
     </>
   );
 };

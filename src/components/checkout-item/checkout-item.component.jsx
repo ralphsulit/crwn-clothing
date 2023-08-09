@@ -3,7 +3,7 @@ import { Fragment, useContext } from "react";
 import { ChevronLeft, ChevronRight, XCircle } from 'react-feather'; 
 import { CartContext } from "../../contexts/cart.context";
 
-import './checkout-item.style.scss';
+import { CheckoutItemContainer, ImageContainer } from './checkout-item.style.jsx';
 
 const CheckoutItem = ({ checkoutItem }) => {
   const { name, imageUrl, price, quantity, id } = checkoutItem;
@@ -15,10 +15,10 @@ const CheckoutItem = ({ checkoutItem }) => {
 
   return (
     <Fragment>
-      <section className="checkout-item-container">
-        <div className="image-container">
+      <CheckoutItemContainer>
+        <ImageContainer>
           <img src={imageUrl} alt={`${name}`} />
-        </div>
+        </ImageContainer>
         <span className="name">{name}</span>
         <span className="quantity">
           <button onClick={decreaseQuantityHandler} className="arrow"><ChevronLeft /></button>
@@ -27,7 +27,7 @@ const CheckoutItem = ({ checkoutItem }) => {
         </span>
         <span className="price">${price}</span>
         <button onClick={removeItemHandler} className="remove-button"><XCircle /></button>
-      </section>
+      </CheckoutItemContainer>
     </Fragment>
   );
 };

@@ -3,7 +3,7 @@ import { Fragment, useContext, useEffect } from 'react';
 
 import { CartContext } from '../../contexts/cart.context';
 
-import './cart-icon.styles.scss';
+import {CartIconContainer} from './cart-icon.styles.jsx';
 
 const CartIcon = () => {
   const { isCartOpen, setIsCartOpen, countTotalProducts, cartItems } = useContext(CartContext);
@@ -22,10 +22,10 @@ const CartIcon = () => {
 
   return (
     <Fragment>  
-      <section className='cart-icon-container' onClick={toggleIsCartOpen}>
+      <CartIconContainer onClick={toggleIsCartOpen}>
         <ShoppingIcon className='shopping-icon'/>
         <span className='item-count'>{cartCount}</span>
-      </section>
+      </CartIconContainer>
     </Fragment>
   );
 };

@@ -1,4 +1,6 @@
-.checkout-item-container {
+import styled from 'styled-components';
+
+export const CheckoutItemContainer = styled.section`
   width: 100%;
   display: flex;
   min-height: 100px;
@@ -7,24 +9,15 @@
   font-size: 20px;
   align-items: center;
 
-  button {
-    border: none;
-    background-color: transparent;
-  }
-
-  .image-container {
-    width: 23%;
-    padding-right: 15px;
-
-    img {
-      width: 100%;
-      height: 100%;
-    }
-  }
   .name,
   .quantity,
   .price {
     width: 23%;
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
   }
 
   .quantity {
@@ -43,4 +36,14 @@
     padding-left: 12px;
     cursor: pointer;
   }
-}
+`;
+
+export const ImageContainer = styled.div`
+  width: 23%;
+  padding-right: 15px;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+`;
